@@ -10,8 +10,8 @@ function fillCanvas(canvasWithContext, color)
     cv.beginPath();
     cv.strokeStyle = color;
     cv.lineWidth = parseInt(h);
-    cv.moveTo(0, h/2);
-    cv.lineTo(w, h/2);
+    cv.moveTo(w*0.1, h/2);
+    cv.lineTo(w*0.9, h/2);
     cv.stroke();
     cv.closePath();
 }
