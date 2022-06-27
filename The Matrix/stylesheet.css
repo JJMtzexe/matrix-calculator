@@ -42,18 +42,18 @@ div[id="subtitle"] h2
     height: 1em;
     margin-top: 1%;
     margin-bottom: 1em;
-    font-family: 'Cascadia Code';
+    font-family: 'Cascadia Code','Monaco';
     font-weight: normal;
     color: rgb(205, 220, 220);
     font-size: 1.75em;
 }
 
-p[id="lore"], div[id="subtitle"] i
+p[id="lore"]
 {
     margin-top: 1%;
-    font-family: 'Cascadia Code';
+    font-family: 'Cascadia Code','Andalé Mono';
     color: rgb(205, 220, 220);
-    font-size: 1.75em;
+    font-size: 20px;
     min-height: 3em;
 }
 
