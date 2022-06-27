@@ -26,9 +26,15 @@ h1
     top: 50px;
 }
 
+h3
+{
+    font-family: 'Proxima Nova', Verdana, 'Avenir Next';
+    color: white;
+}
+
 div[id="mainContent"]
 {
-    background-color: blue;
+    background-color: rgb(133, 155, 167);
 }
 
 canvas[id="titleLine"] 
