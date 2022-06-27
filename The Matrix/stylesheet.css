@@ -7,7 +7,6 @@ div[id="upperSection"]
 {
     background-color: rgb(62, 83, 94);
     text-align: center;
-    position: relative; 
 }
 
 div[id = "title"]
@@ -17,6 +16,13 @@ div[id = "title"]
     font-size: 2.5rem;
     margin-bottom: 0%;
     margin-top: 0%;
+    position: relative;
+    min-height: 2em;
+}
+
+div[id="mainContent"]
+{
+    background-color: blue;
 }
 
 canvas[id="titleLine"] 
@@ -27,8 +33,9 @@ canvas[id="titleLine"]
 
 div[id="subtitle"] h2
 {
-    height: 2em;
+    height: 1em;
     margin-top: 1%;
+    margin-bottom: 1em;
     font-family: 'Cascadia Code';
     font-weight: normal;
     color: rgb(205, 220, 220);
@@ -41,16 +48,55 @@ p[id="lore"], div[id="subtitle"] i
     font-family: 'Cascadia Code';
     color: rgb(205, 220, 220);
     font-size: 1.75em;
+    min-height: 3em;
+}
+
+div[id="subtitle"] p:nth-of-type(2) 
+{
+    color: #11ca11;
+    height: 2em;
+}
+
+div[id="socialInfo"]
+{
+    text-align: left;
+}
+
+div[id="socialInfo"] a:nth-of-type(1)
+{   
+    position: relative;
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium';
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+    top: -7.5px;
+    padding-left: 10px;
+}
+
+div[id="socialInfo"] a:nth-of-type(2) {
+    position: relative;
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium';
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+    top: -7.5px;
+    padding-left: 40px;
 }
 
 h1
 {
     margin-bottom: inherit;
-    height: 1em;
+    height: 0.5em;
 }
 
 p[id="lore"]
 {
     font-size: 1em;
     color: rgb(108, 129, 142);
+}
+
+img[id="githubIcon"]
+{
+    position: relative;
+    left: 30px;
 }
