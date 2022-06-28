@@ -29,7 +29,8 @@ h1
 h3
 {
     font-family: 'Proxima Nova', Verdana, 'Avenir Next';
-    color: white;
+    color: black;
+    font-size: 1.75em;
 }
 
 div[id="mainContent"]
@@ -90,6 +91,43 @@ div[id="socialInfo"] img
 div[id="socialInfo"] img:hover 
 {
     transform: scale(1.3);
+}
+
+div[id="mainContent"]
+{
+    padding-left: 1em;
+}
+
+div[id="matrixPreview"] table
+{
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-spacing: 0.4rem;
+}
+
+div[id="matrixPreview"] table tr 
+{
+        border-top: 10px;
+        border-bottom: 10px;
+        border-left: 10px;
+        border-right: 10px;
+}
+
+div[id="matrixPreview"] table tr th
+{
+    border-style: solid;
+    height: 50px;
+    width: 50px;
+    border-width: 0.25em;
+    border-color: black;
+    transition: transform .3s;
+}
+
+div[id="matrixPreview"] table tr th:hover {
+    transform: scale(1.2);
+    border-color: rgb(245,2,76);
 }
 
 p[id="lore"]
