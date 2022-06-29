@@ -1,5 +1,7 @@
+import * as bhv from './matrix-graphic-behavior.js';
 let cv_ln = document.getElementById("titleLine").getContext("2d");
 let titleLore = document.getElementById("lore");
+let table = document.getElementById("matrixPreviewTable");
 
 function fillCanvas(canvasWithContext, color)
 {
@@ -41,4 +43,4 @@ function repeatAssignSubtitle()
 
 fillCanvas(cv_ln, "#cddcdc");
 repeatAssignSubtitle();
-
+bhv.generateMatrix(table, 5, 5, "matrixPrev", "th");
