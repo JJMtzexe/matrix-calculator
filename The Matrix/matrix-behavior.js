@@ -1,9 +1,17 @@
 export function generateMatrix(tableLocation, rows, columns, publicIdentifier, HTMLtag, attribute = null, attributeValue = null)
 {
+    if (tableLocation.childElementCount)
+    {
+        tableLocation.innerHTML = "";
+        document.getElementById(`${publicIdentifier}Val`).remove();
+    }
     function matrixSelector(col, row)
     {
         return tableLocation.getElementsByTagName("tr")[col].getElementsByTagName("th")[row];
     }
+
+    var p = document.createElement("p");
+    p.id = `${publicIdentifier}Val`;
 
     for (var i = 0; i < rows; i++) {
         var tr = document.createElement("tr");
@@ -22,6 +30,7 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
                         if (this.posY > m && this.posX > n) {
                             matrixSelector(n, m).style.borderColor = "rgb(245, 2, 76)";
                             matrixSelector(n, m).style.transform = "scale(1.25)";
+                            p.innerHTML = `${this.posX} × ${this.posY}`
                         }
                     }
                 }
@@ -33,6 +42,7 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
                             matrixSelector(n, m).style.backgroundColor = null;
                             matrixSelector(n, m).style.borderColor = "black";
                             matrixSelector(n, m).style.transform = "scale(1)";
+                            p.innerHTML = "0 × 0";
                         }
                     }
                 }
@@ -45,11 +55,12 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
                         matrixSelector(n, m).onmouseup = undefined;
                         matrixSelector(n, m).style.transform = "scale(1)";
                         if (this.posY > m && this.posX > n) {
-                            matrixSelector(n, m).style.backgroundColor = "lime";
-                            matrixSelector(n, m).style.borderColor = "green";
+                            matrixSelector(n, m).style.backgroundColor = "rgb(245, 2, 76)";
+                            matrixSelector(n, m).style.borderColor = "rgb(245, 2, 76)";
                         }
                     }
                 }
+                p.style.color = "rgb(245, 2, 76)";
             }
 
             if (attribute) {
@@ -58,8 +69,6 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
             tr.appendChild(th);
         }
     }
-
-    var p = document.createElement("p");
-    p.id = `${publicIdentifier}Val`;
-    tableLocation.appendChild(p);
+    tableLocation.parentNode.appendChild(p);
+    p.innerHTML = "0 × 0";
 }

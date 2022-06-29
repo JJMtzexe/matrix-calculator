@@ -1,8 +1,13 @@
-import { generateMatrix } from "./matrix-test.js";
+import { generateMatrix } from "./matrix-behavior.js";
 
 let cv_ln = document.getElementById("titleLine").getContext("2d");
 let titleLore = document.getElementById("lore");
 let table = document.getElementById("matrixPreviewTable");
+let restart = document.getElementById("reset");
+
+restart.onmouseup = function() {
+    generateMatrix(table, 5, 5, "matrixPrev", "th");
+}
 
 function fillCanvas(canvasWithContext, color)
 {
@@ -44,4 +49,4 @@ function repeatAssignSubtitle()
 
 fillCanvas(cv_ln, "#cddcdc");
 repeatAssignSubtitle();
-generateMatrix(table, 10, 10, "matrixPrev", "th");
+generateMatrix(table, 5, 5, "matrixPrev", "th");

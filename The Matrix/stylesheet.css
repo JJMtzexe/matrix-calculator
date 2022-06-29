@@ -90,13 +90,22 @@ div[id="mainContent"]
     padding-left: 1em;
 }
 
+div[id="matrixPreview"] {
+    width: 60%;
+    text-align: center;
+    margin: 0;
+}
+
 div[id="matrixPreview"] table
 {
+    position: relative;
+    display: inline-block;
     border-top: 0;
     border-bottom: 0;
     border-left: 0;
     border-right: 0;
     border-spacing: 0.7rem;
+    margin-right: 0;
 }
 
 div[id="matrixPreview"] table tr 
@@ -105,10 +114,12 @@ div[id="matrixPreview"] table tr
         border-bottom: 10px;
         border-left: 10px;
         border-right: 10px;
+        margin-right: 0;
 }
 
 div[id="matrixPreview"] table tr th
 {
+    border-radius: 0.5em;
     border-style: solid;
     height: 50px;
     width: 50px;
@@ -122,11 +133,6 @@ div[id="matrixPreview"] table tr th:hover
     transform: scale(1.2);
 }
 
-div[id="matrixPreview"] p:nth-of-type(1)
-{
-    transform: scale(1.2);
-}
-
 p[id="lore"] {
     margin-top: 1%;
     font-family: 'Cascadia Code', 'Andalé Mono';
@@ -135,11 +141,10 @@ p[id="lore"] {
     color: rgb(108, 129, 142);
 }
 
-p[id="matrixPreviewValue"]
-{
-    margin-top: 1%;
-    font-family: 'Cascadia Code','Andalé Mono';
-    color: rgb(205, 220, 220);
-    font-size: 20px;
-    min-height: 3em;
+div[id="matrixPreview"] p {
+    position: relative;
+    font-size: 3em;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 0;
 }
