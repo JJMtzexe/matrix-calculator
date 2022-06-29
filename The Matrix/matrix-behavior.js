@@ -4,6 +4,7 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
     {
         tableLocation.innerHTML = "";
         document.getElementById(`${publicIdentifier}Val`).remove();
+        document.getElementById(`${publicIdentifier}Reset`).remove();
     }
     function matrixSelector(col, row)
     {
@@ -12,6 +13,13 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
 
     var p = document.createElement("p");
     p.id = `${publicIdentifier}Val`;
+
+    var button = document.createElement("button");
+    button.id = `${publicIdentifier}Reset`;
+
+    button.onmouseup = function () {
+        generateMatrix(tableLocation, rows, columns, "matrixPrev", "th");
+    }
 
     for (var i = 0; i < rows; i++) {
         var tr = document.createElement("tr");
@@ -29,7 +37,8 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
                     for (var m = 0; m < columns; m++) {
                         if (this.posY > m && this.posX > n) {
                             matrixSelector(n, m).style.borderColor = "rgb(245, 2, 76)";
-                            matrixSelector(n, m).style.transform = "scale(1.25)";
+                            matrixSelector(n, m).style.backgroundColor = "rgb(245, 2, 76)";
+                            matrixSelector(n, m).style.transform = "scale(1.15)";
                             p.innerHTML = `${this.posX} × ${this.posY}`
                         }
                     }
@@ -39,8 +48,8 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
                 for (var n = 0; n < rows; n++) {
                     for (var m = 0; m < columns; m++) {
                         if (this.posY > m && this.posX > n) {
-                            matrixSelector(n, m).style.backgroundColor = null;
-                            matrixSelector(n, m).style.borderColor = "black";
+                            matrixSelector(n, m).style.backgroundColor = "white";
+                            matrixSelector(n, m).style.borderColor = "white";
                             matrixSelector(n, m).style.transform = "scale(1)";
                             p.innerHTML = "0 × 0";
                         }
@@ -58,9 +67,14 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
                             matrixSelector(n, m).style.backgroundColor = "rgb(245, 2, 76)";
                             matrixSelector(n, m).style.borderColor = "rgb(245, 2, 76)";
                         }
+                        else if (this.posY <= m || this.posX <= n)
+                        { 
+                            matrixSelector(n, m).style.backgroundColor = "white";
+                            matrixSelector(n, m).style.borderColor = null;
+                        }
                     }
                 }
-                p.style.color = "rgb(245, 2, 76)";
+                p.style.color = "white";
             }
 
             if (attribute) {
@@ -70,5 +84,7 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
         }
     }
     tableLocation.parentNode.appendChild(p);
+    tableLocation.parentNode.appendChild(button);
     p.innerHTML = "0 × 0";
+    button.innerHTML = "reset";
 }
