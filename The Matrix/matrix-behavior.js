@@ -4,10 +4,13 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
         return tableLocation.getElementsByTagName("tr")[col].getElementsByTagName("th")[row];
     }
 
-    function udpateMatrixDimensions(matrixCell) 
+    function updateCellDimensions(cell)
     {
-        matrixCell.style.width = (matrixCell.style.width/rows).toString();
-        matrixCell.style.height = (matrixCell.style.height /rows).toString();
+        cell.width = parseInt(1 / rows * 500).toString();
+        cell.height = parseInt(1 / rows * 500).toString();
+        cell.style.borderRadius = `${cell.width / 150}em`;
+        cell.parentElement.parentElement.style.borderSpacing = `${1 / rows * 7}em`;
+        setTimeout(updateCellDimensions, 100, cell)
     }
 
     if (tableLocation.childElementCount)
@@ -86,8 +89,8 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
             if (attribute) {
                 th.setAttribute(attribute, attributeValue);
             }
-            tr.appendChild(th);
-            udpateMatrixDimensions(th);
+            tr.appendChild(th); 
+            updateCellDimensions(th);
         }
     }
     tableLocation.parentNode.appendChild(p);

@@ -44,4 +44,4 @@ function repeatAssignSubtitle()
 
 fillCanvas(cv_ln, "#cddcdc");
 repeatAssignSubtitle();
-generateMatrix(table, 5, 5, "matrixPrev", "th");
+generateMatrix(table, 10, 10, "matrixPrev", "th");

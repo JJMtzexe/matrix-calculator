@@ -122,8 +122,8 @@ div[id="matrixPreview"] table tr th
 {
     border-radius: 0.5em;
     border-style: solid;
-    height: 50px;
-    width: 50px;
+    /* height: 3em;
+    width: 3em; */
     border-width: 0.25em;
     border-color: white;
     background-color: white;
