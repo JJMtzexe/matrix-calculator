@@ -1,14 +1,20 @@
 export function generateMatrix(tableLocation, rows, columns, publicIdentifier, HTMLtag, attribute = null, attributeValue = null)
 {
+    function matrixSelector(col, row) {
+        return tableLocation.getElementsByTagName("tr")[col].getElementsByTagName("th")[row];
+    }
+
+    function udpateMatrixDimensions(matrixCell) 
+    {
+        matrixCell.style.width = (matrixCell.style.width/rows).toString();
+        matrixCell.style.height = (matrixCell.style.height /rows).toString();
+    }
+
     if (tableLocation.childElementCount)
     {
         tableLocation.innerHTML = "";
         document.getElementById(`${publicIdentifier}Val`).remove();
         document.getElementById(`${publicIdentifier}Reset`).remove();
-    }
-    function matrixSelector(col, row)
-    {
-        return tableLocation.getElementsByTagName("tr")[col].getElementsByTagName("th")[row];
     }
 
     var p = document.createElement("p");
@@ -81,6 +87,7 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
                 th.setAttribute(attribute, attributeValue);
             }
             tr.appendChild(th);
+            udpateMatrixDimensions(th);
         }
     }
     tableLocation.parentNode.appendChild(p);
