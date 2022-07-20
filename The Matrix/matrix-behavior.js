@@ -6,10 +6,10 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
 
     function updateCellDimensions(cell)
     {
-        cell.width = parseInt(1 / rows * 500).toString();
-        cell.height = parseInt(1 / rows * 500).toString();
+        cell.width = parseInt(1 / rows * 150).toString();
+        cell.height = parseInt(1 / rows * 150).toString();
         cell.style.borderRadius = `${cell.width / 150}em`;
-        cell.parentElement.parentElement.style.borderSpacing = `${1 / rows * 7}em`;
+        cell.parentElement.parentElement.style.borderSpacing = `${1 / rows * 5}em`;
         setTimeout(updateCellDimensions, 100, cell)
     }
 
