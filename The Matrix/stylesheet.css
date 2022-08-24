@@ -127,7 +127,7 @@ div[id="matrixPreview"] table tr th
     border-width: 0.25em;
     border-color: white;
     background-color: white;
-    transition: transform .3s;
+    transition: all .3s;
 }
 
 div[id="matrixPreview"] table tr th:hover
@@ -155,12 +155,12 @@ div[id="matrixPreview"] p
     color: rgb(245, 2, 76);
 }
 
-div[id="matrixPreview"] button
+.button
 {
     height: auto;
     width: auto;
     position: relative;
-    font-size: 3em;
+    font-size: 2em;
     font-family: Helvetica, sans-serif;
     font-weight: bold;
     padding-inline: 1.5rem;
@@ -171,7 +171,9 @@ div[id="matrixPreview"] button
     background-color: inherit;
     border-style: outset;
     color: white;
-    transition: transform 0.3s;
+    transition: all 0.3s;
+    position: relative;
+    margin: 0.25em;
 }
 
 div[id="matrixPreview"] button:hover

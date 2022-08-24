@@ -18,16 +18,26 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
         tableLocation.innerHTML = "";
         document.getElementById(`${publicIdentifier}Val`).remove();
         document.getElementById(`${publicIdentifier}Reset`).remove();
+        document.getElementById(`${publicIdentifier}OK`).remove();
     }
 
     var p = document.createElement("p");
     p.id = `${publicIdentifier}Val`;
 
-    var button = document.createElement("button");
-    button.id = `${publicIdentifier}Reset`;
+    var resButton = document.createElement("button");
+    resButton.id = `${publicIdentifier}Reset`;
+    resButton.className = "button";
 
-    button.onmouseup = function () {
+    var okButton = document.createElement("button");
+    okButton.id = `${publicIdentifier}OK`;
+    okButton.className = "button";
+
+    resButton.onclick = function () {
         generateMatrix(tableLocation, rows, columns, "matrixPrev", "th");
+    }
+
+    okButton.onclick = function () {
+        generateMatrix(tableLocation, this.posX, this.posY, "matrixEnter", "text");
     }
 
     for (var i = 0; i < rows; i++) {
@@ -47,7 +57,7 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
                         if (this.posY > m && this.posX > n) {
                             matrixSelector(n, m).style.borderColor = "rgb(245, 2, 76)";
                             matrixSelector(n, m).style.backgroundColor = "rgb(245, 2, 76)";
-                            matrixSelector(n, m).style.transform = "scale(1.15)";
+                            matrixSelector(n, m).style.transform = "scale(1.2)";
                             p.innerHTML = `${this.posX} × ${this.posY}`
                         }
                     }
@@ -94,7 +104,9 @@ export function generateMatrix(tableLocation, rows, columns, publicIdentifier, H
         }
     }
     tableLocation.parentNode.appendChild(p);
-    tableLocation.parentNode.appendChild(button);
+    tableLocation.parentNode.appendChild(resButton);
+    tableLocation.parentNode.appendChild(okButton);
     p.innerHTML = "0 × 0";
-    button.innerHTML = "reset";
+    resButton.innerHTML = "reset";
+    okButton.innerHTML = "OK";
 }
